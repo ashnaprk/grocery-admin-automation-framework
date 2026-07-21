@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-21T11:37:06 IST" name="Default suite" finished-at="2026-07-21T11:37:11 IST" duration-ms="5520">
+  <suite started-at="2026-07-21T23:16:02 IST" name="Default suite" finished-at="2026-07-21T23:16:07 IST" duration-ms="4626">
     <groups>
     </groups>
-    <test started-at="2026-07-21T11:37:06 IST" name="Default test" finished-at="2026-07-21T11:37:11 IST" duration-ms="5520">
-      <class name="testscript.LoginTest">
-        <test-method is-config="true" signature="browserIntilalization()[pri:0, instance:testscript.LoginTest@6f1de4c7]" started-at="2026-07-21T11:37:06 IST" name="browserIntilalization" finished-at="2026-07-21T11:37:08 IST" duration-ms="1977" status="PASS">
+    <test started-at="2026-07-21T23:16:02 IST" name="Default test" finished-at="2026-07-21T23:16:07 IST" duration-ms="4626">
+      <class name="testscript.ManageCategoryTest">
+        <test-method is-config="true" signature="browserIntilalization()[pri:0, instance:testscript.ManageCategoryTest@4d5d943d]" started-at="2026-07-21T23:16:02 IST" name="browserIntilalization" finished-at="2026-07-21T23:16:04 IST" duration-ms="1605" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserIntilalization -->
-        <test-method signature="verifyLoginWithValidUsernameAndValidPassword()[pri:0, instance:testscript.LoginTest@6f1de4c7]" started-at="2026-07-21T11:37:08 IST" name="verifyLoginWithValidUsernameAndValidPassword" description="Verify user can sign in successfully with valid username and valid password and is redirected to the dashboard page." finished-at="2026-07-21T11:37:11 IST" duration-ms="3497" status="PASS">
+        <test-method signature="verifyUserCanAddANewCateogory()[pri:0, instance:testscript.ManageCategoryTest@4d5d943d]" started-at="2026-07-21T23:16:04 IST" name="verifyUserCanAddANewCateogory" finished-at="2026-07-21T23:16:07 IST" duration-ms="2994" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoginWithValidUsernameAndValidPassword -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testscript.LoginTest@6f1de4c7]" started-at="2026-07-21T11:37:11 IST" name="afterMethod" finished-at="2026-07-21T11:37:11 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- verifyUserCanAddANewCateogory -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testscript.ManageCategoryTest@4d5d943d]" started-at="2026-07-21T23:16:07 IST" name="afterMethod" finished-at="2026-07-21T23:16:07 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-      </class> <!-- testscript.LoginTest -->
+      </class> <!-- testscript.ManageCategoryTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

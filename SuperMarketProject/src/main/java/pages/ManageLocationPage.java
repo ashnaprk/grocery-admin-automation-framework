@@ -5,16 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import utilities.ActionUtilities;
-import utilities.PageUtilities;
-import utilities.WaitUtilities;
+import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class ManageLocationPage {
 
 	WebDriver driver;
-	WaitUtilities wait = new WaitUtilities();
-	PageUtilities page = new PageUtilities();
-	ActionUtilities action = new ActionUtilities();
+	WaitUtility wait = new WaitUtility();
+	PageUtility page = new PageUtility();
+	
 
 	public ManageLocationPage(WebDriver driver) {
 		this.driver = driver;
@@ -22,7 +21,7 @@ public class ManageLocationPage {
 
 	}
 
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-location' and @class='small-box-footer']")
+	@FindBy(xpath="(//a[@class='small-box-footer'])[11]")
 	WebElement moreInfoButton;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	WebElement newButton;
@@ -43,8 +42,8 @@ public class ManageLocationPage {
 		page.scrollToElement(driver, moreInfoButton);
 		page.javaScriptClick(driver, moreInfoButton);
 		newButton.click();
-		ActionUtilities.selectByIndex(countryId, 1);
-		ActionUtilities.selectByVisibleText(stateId, "Cambridge");
+		PageUtility.selectByIndexDropDown(countryId, 0);
+		PageUtility.selectByVisibleTextDropdowm(stateId, "Cambridge");
 		location.sendKeys(locationField);
 		deliveryCharge.sendKeys(deliveryChargeField);
 		page.scrollToElement(driver, saveButton);

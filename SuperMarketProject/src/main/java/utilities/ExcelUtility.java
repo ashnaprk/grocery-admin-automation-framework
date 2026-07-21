@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import constants.Constants;
 
-public class ExcelUtilities {
+public class ExcelUtility {
 	static FileInputStream f; //represent excel workbook file read
 	static XSSFWorkbook w;    //excel work book entire representation
 	static XSSFSheet sh;      //represent sheet in excel work book
@@ -18,7 +18,7 @@ public class ExcelUtilities {
 	public static String getStringData(int a, int b,String sheet)throws IOException { //to read string data
 	
 		//f = new FileInputStream("C:\\Users\\ashna\\eclipse-workspace\\mavenproject\\src\\main\\resources\\Book1.xlsx");
-	f=new FileInputStream(Constants.TESTDATAFILE);
+	f=new FileInputStream(Constants.TESTDATA);
 	w = new XSSFWorkbook(f); //apache poi entirely add excel workbook file to memory(allocation)
 	sh = w.getSheet(sheet);//sheet 1 reprentation in a workbook
 	XSSFRow r =sh.getRow(a);  //read cell values-row
@@ -29,7 +29,7 @@ public class ExcelUtilities {
 	}
 	
 	public static String getIntData(int a, int b, String sheet)throws IOException {  //to read integer data
-	f = new FileInputStream(Constants.TESTDATAFILE);
+	f = new FileInputStream(Constants.TESTDATA);
 	w = new XSSFWorkbook(f);  //apache poi entirely add excel workbook file to memory(allocation)
 	sh = w.getSheet(sheet);  //sheet 1 reprentation in a workbook
 	XSSFRow r =sh.getRow (a);

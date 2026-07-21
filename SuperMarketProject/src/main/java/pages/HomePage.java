@@ -19,6 +19,8 @@ public class HomePage {
 	WebElement adminButton;
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-power-off']")
 	WebElement logoutButton;
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement signIn;
 
 	public void clickLogout() {
 		adminButton.click();
