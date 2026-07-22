@@ -38,15 +38,35 @@ public class ManageLocationPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement newLocationAddedSuccessAlert;
 
-	public void addNewLocation(String locationField, String deliveryChargeField) {
+	public void clickNewButton() {
 		page.scrollToElement(driver, moreInfoButton);
 		page.javaScriptClick(driver, moreInfoButton);
 		newButton.click();
-		PageUtility.selectByIndexDropDown(countryId, 0);
+	}
+	public void selectCountryFromDropDown()
+	{
+		wait.elementToBeClicked(driver, countryId);
+		PageUtility.selectByIndexDropDown(countryId, 1);
+	}
+	public void selectStateFromDropDown()
+	{
+		wait.elementToBeClicked(driver, countryId);
 		PageUtility.selectByVisibleTextDropdowm(stateId, "Cambridge");
+	}
+	public void enterLocation(String locationField)
+	{ 
+		
 		location.sendKeys(locationField);
+	}
+	public void enterDeliveryCharge(String deliveryChargeField)
+	{
 		deliveryCharge.sendKeys(deliveryChargeField);
+	}
+	public void clickSaveButton()
+	{
+		
 		page.scrollToElement(driver, saveButton);
+		wait.elementToBeClicked(driver, saveButton);
 		page.javaScriptClick(driver, saveButton);
 
 	}

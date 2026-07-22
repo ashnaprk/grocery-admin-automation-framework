@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="grouping">
+
+	<parameter name="Browsers" value="Chrome"></parameter>
+	<test name="chromeTest">
+		<groups>
+			<run>
+				<include name="smoke"></include>
+			</run>
+		</groups>
+
+		<classes>
+			<class name="testscript.ManageCategoryTest">
+			</class>
+			<class name="testscript.LoginTest">
+			
+			</class>
+			<class name="testscript.LogoutTest">
+			</class>
+			<class name="testscript.ManageLocationTest">
+			</class>
+		</classes>
+	</test>
+</suite>

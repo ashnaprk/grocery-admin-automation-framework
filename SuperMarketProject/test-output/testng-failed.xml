@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testscript.ManageCategoryTest">
+      <class name="testscript.ManageLocationTest">
         <methods>
-          <include name="browserIntilalization"/>
+          <include name="beforeMethods"/>
+          <include name="verifyUserCanAddNewLocation"/>
           <include name="afterMethod"/>
-          <include name="verifyUserCanAddANewCateogory"/>
         </methods>
-      </class> <!-- testscript.ManageCategoryTest -->
+      </class> <!-- testscript.ManageLocationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

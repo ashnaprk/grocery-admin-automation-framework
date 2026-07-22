@@ -12,7 +12,7 @@ import pages.ManageLocationPage;
 import utilities.ExcelUtility;
 
 public class ManageLocationTest extends Base {
-	@Test(description = "Verify new location is added in the Manage Location.")
+	@Test(description = "Verify new location is added in the Manage Location.",groups = "smoke")
 	public void verifyUserCanAddNewLocation() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		ManageLocationPage manage = new ManageLocationPage(driver);
@@ -22,7 +22,12 @@ public class ManageLocationTest extends Base {
 		login.clickSignIn();
 		String location = ExcelUtility.getStringData(1, 0, "ManageLocationTestData");
 		String deliveryCharge = ExcelUtility.getIntData(1, 1, "ManageLocationTestData");
-		manage.addNewLocation(location,deliveryCharge);
+		manage.clickNewButton();
+		manage.selectCountryFromDropDown();
+		manage.selectStateFromDropDown();
+		manage.enterLocation(location);
+		manage.enterDeliveryCharge(deliveryCharge);
+		manage.clickSaveButton();
 		boolean sucessAlertDisplayed = manage.isNewLocationAdded();
 		assertTrue(sucessAlertDisplayed,Constants.LOCATION_NOT_ADDED);
 		

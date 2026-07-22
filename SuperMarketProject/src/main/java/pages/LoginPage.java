@@ -29,7 +29,7 @@ public class LoginPage {
 
 	public void clickSignIn() {
 		signIn.click();
-		System.out.println(driver.getTitle());
+		//System.out.println(driver.getTitle());
 	}
 
 	public String isUserSignedIn() {

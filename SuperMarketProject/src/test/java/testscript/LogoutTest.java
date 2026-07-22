@@ -12,7 +12,7 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LogoutTest extends Base {
-	@Test(description = "Verify user can log out successfully and is redirected to the login page.")
+	@Test(description = "Verify user can log out successfully and is redirected to the login page.",groups = "smoke")
 	public void verifyLogout() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		HomePage home = new HomePage(driver);

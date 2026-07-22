@@ -70,7 +70,7 @@
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
-
+						<suiteXmlFile>grouping.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

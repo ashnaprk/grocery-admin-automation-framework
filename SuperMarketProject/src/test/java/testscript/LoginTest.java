@@ -12,7 +12,7 @@ import utilities.ExcelUtility;
 
 
 public class LoginTest extends Base {
-	@Test(description = "Verify user can sign in successfully with valid username and valid password and is redirected to the dashboard page.")
+	@Test(description = "Verify user can sign in successfully with valid username and valid password and is redirected to the dashboard page.",groups = "smoke")
 	public void verifyLoginWithValidUsernameAndValidPassword() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		String username = ExcelUtility.getStringData(1, 0, "LoginTestData");

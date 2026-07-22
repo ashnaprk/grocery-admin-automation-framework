@@ -15,4 +15,6 @@ public class Constants {
 	
 	public static final String CATEGORY_NOT_ADDED="New Category was not added";
 	
+	public static final String CONFIGFILEPATH=System.getProperty("user.dir")+"//src//test//resources//config.properties";
+	
 }
