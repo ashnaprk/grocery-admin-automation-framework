@@ -4,7 +4,6 @@ import static org.testng.Assert.assertTrue;
 
 import java.io.IOException;
 
-
 import org.testng.annotations.Test;
 
 import constants.Constants;
@@ -13,12 +12,8 @@ import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base {
-	/*@Test(groups = "smoketest")
-	public void test() {
-	    System.out.println("Test is running");
-	    Assert.fail("Dummy failure");
-	}*/
-	@Test(description = "Verify user can add a new Category in the category page",groups = "smoke")
+
+	@Test(description = "Verify user can add a new Category in the category page", groups = "smoke")
 	public void verifyUserCanAddANewCateogory() throws IOException {
 		LoginPage login = new LoginPage(driver);
 		ManageCategoryPage category = new ManageCategoryPage(driver);
