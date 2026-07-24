@@ -13,7 +13,6 @@ public class ManageLocationPage {
 	WebDriver driver;
 	WaitUtility wait = new WaitUtility();
 	PageUtility page = new PageUtility();
-	
 
 	public ManageLocationPage(WebDriver driver) {
 		this.driver = driver;
@@ -21,8 +20,6 @@ public class ManageLocationPage {
 
 	}
 
-	@FindBy(xpath="(//a[@class='small-box-footer'])[11]")
-	WebElement moreInfoButton;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	WebElement newButton;
 	@FindBy(xpath = "//select[@id='country_id']")
@@ -38,36 +35,41 @@ public class ManageLocationPage {
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement newLocationAddedSuccessAlert;
 
-	public void clickNewButton() {
-		page.scrollToElement(driver, moreInfoButton);
-		page.javaScriptClick(driver, moreInfoButton);
+	public ManageLocationPage clickNewButton() {
+
 		newButton.click();
+		return this;
 	}
-	public void selectCountryFromDropDown()
-	{
+
+	public ManageLocationPage selectCountryFromDropDown() {
 		wait.elementToBeClicked(driver, countryId);
 		PageUtility.selectByIndexDropDown(countryId, 1);
+		return this;
 	}
-	public void selectStateFromDropDown()
-	{
+
+	public ManageLocationPage selectStateFromDropDown() {
 		wait.elementToBeClicked(driver, countryId);
-		PageUtility.selectByVisibleTextDropdowm(stateId, "Cambridge");
+		PageUtility.selectByIndexDropDown(stateId, 5);
+		return this;
 	}
-	public void enterLocation(String locationField)
-	{ 
-		
+
+	public ManageLocationPage enterLocation(String locationField) {
+
 		location.sendKeys(locationField);
+		return this;
 	}
-	public void enterDeliveryCharge(String deliveryChargeField)
-	{
+
+	public ManageLocationPage enterDeliveryCharge(String deliveryChargeField) {
 		deliveryCharge.sendKeys(deliveryChargeField);
+		return this;
 	}
-	public void clickSaveButton()
-	{
-		
+
+	public ManageLocationPage clickSaveButton() {
+
 		page.scrollToElement(driver, saveButton);
 		wait.elementToBeClicked(driver, saveButton);
 		page.javaScriptClick(driver, saveButton);
+		return this;
 
 	}
 

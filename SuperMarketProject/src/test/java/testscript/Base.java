@@ -3,11 +3,12 @@ package testscript;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
-
 import constants.Constants;
+import utilities.ScreenshotUtility;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 //import java.time.Duration;
 import java.util.Properties;
@@ -16,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 public class Base {
@@ -26,6 +28,7 @@ public class Base {
 
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("Browsers")
+
 	public void beforeMethods(String browser) throws Exception {
 		try {
 			properties = new Properties();
@@ -46,17 +49,24 @@ public class Base {
 		else {
 			throw new Exception("invalid browser");
 		}
-		//driver = new ChromeDriver();
+		
 		driver.get(properties.getProperty("url"));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
 
 	}
 
-	@AfterMethod
-	public void afterMethod() {
-		//driver.close();
+	@AfterMethod(alwaysRun = true)
+	public void afterMethod(ITestResult itResult) throws IOException {
+
+		if (itResult.getStatus() == ITestResult.FAILURE) {
+			ScreenshotUtility sc = new ScreenshotUtility();
+			sc.captureFailureScreenShot(driver, itResult.getName());
+		}
+		if (driver != null) {
+			driver.quit();
+		}
+
 	}
 
 }

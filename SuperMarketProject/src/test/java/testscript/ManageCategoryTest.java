@@ -7,11 +7,14 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import constants.Constants;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageCategoryPage;
 import utilities.ExcelUtility;
 
 public class ManageCategoryTest extends Base {
+	HomePage home;
+	ManageCategoryPage category;
 
 	@Test(description = "Verify user can add a new Category in the category page", groups = "smoke")
 	public void verifyUserCanAddANewCateogory() throws IOException {
@@ -20,16 +23,12 @@ public class ManageCategoryTest extends Base {
 		String username = ExcelUtility.getStringData(1, 0, "LoginTestData");
 		String password = ExcelUtility.getStringData(1, 1, "LoginTestData");
 		login.enterCredentials(username, password);
-		login.clickSignIn();
-		category.clickOnMoreInfo();
-		category.clickOnNew();
-		String categoryName = ExcelUtility.getStringData(1, 0, "ManageCategoryData");
-		category.enterCategoryName(categoryName);
-		category.selectGroupName();
-		category.chooseFileForUpload();
-		category.selectShowTopMenuNoRadioButton();
-		category.selectShowLeftMenuNoRadioButton();
-		category.clickOnSaveButton();
+		home = login.clickSignIn();
+		category = home.clickOnMoreInfo();
+		category.clickOnNew().enterCategoryName(ExcelUtility.getStringData(1, 0, "ManageCategoryData"))
+				.selectGroupName().chooseFileForUpload().selectShowTopMenuNoRadioButton()
+				.selectShowLeftMenuNoRadioButton().clickOnSaveButton();
+
 		boolean sucessAlertDisplayed = category.isCategoryAddedSuccessMsgDisplayed();
 		assertTrue(sucessAlertDisplayed, Constants.CATEGORY_NOT_ADDED);
 

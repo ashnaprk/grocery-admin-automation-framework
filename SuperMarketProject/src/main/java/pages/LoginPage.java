@@ -21,18 +21,21 @@ public class LoginPage {
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement signIn;
 
-	public void enterCredentials(String userName, String passWord) {
+	public LoginPage enterCredentials(String userName, String passWord) {
 		username.sendKeys(userName);
 		password.sendKeys(passWord);
-		//signIn.click();
+		return this;
+		// signIn.click();
 	}
 
-	public void clickSignIn() {
+	public HomePage clickSignIn() {
 		signIn.click();
-		//System.out.println(driver.getTitle());
+		return new HomePage(driver);
+		// System.out.println(driver.getTitle());
 	}
 
 	public String isUserSignedIn() {
+		System.out.println(driver.getTitle());
 		return driver.getTitle();
 
 	}

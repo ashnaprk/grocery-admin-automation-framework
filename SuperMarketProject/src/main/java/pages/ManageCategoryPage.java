@@ -14,8 +14,8 @@ public class ManageCategoryPage {
 
 	WebDriver driver;
 	FileUploadUtiltity fileUpload = new FileUploadUtiltity();
-	WaitUtility wait =new WaitUtility();
-	PageUtility page=new PageUtility();
+	WaitUtility wait = new WaitUtility();
+	PageUtility page = new PageUtility();
 
 	public ManageCategoryPage(WebDriver driver) {
 		this.driver = driver;
@@ -23,8 +23,8 @@ public class ManageCategoryPage {
 
 	}
 
-	@FindBy(xpath = "(//a[@class='small-box-footer'])[3]")
-	WebElement moreInfoButtonCateogory;
+	// @FindBy(xpath = "(//a[@class='small-box-footer'])[3]")
+	// WebElement moreInfoButtonCateogory;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
 	WebElement newButton;
 	@FindBy(xpath = "//input[@id='category']")
@@ -39,65 +39,57 @@ public class ManageCategoryPage {
 	WebElement showLeftMenuNoRadioButton;
 	@FindBy(xpath = "//button[@class='btn btn-danger']")
 	WebElement saveButton;
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	WebElement categoryAddedSuccessMsg;
 
-	public void clickOnMoreInfo() {
-		//wait.elementToBeSelected(driver, moreInfoButtonCateogory);
-		page.javaScriptClick(driver, moreInfoButtonCateogory);
-		//moreInfoButtonCateogory.click();
-	}
+	/*
+	 * public HomePage clickOnMoreInfo() { // wait.elementToBeSelected(driver,
+	 * moreInfoButtonCateogory); page.javaScriptClick(driver,
+	 * moreInfoButtonCateogory); return new HomePage(driver); //
+	 * moreInfoButtonCateogory.click(); }
+	 */
 
-	public void clickOnNew() {
+	public ManageCategoryPage clickOnNew() {
 		newButton.click();
+		return this;
 	}
 
-	public void enterCategoryName(String categoryfield) {
+	public ManageCategoryPage enterCategoryName(String categoryfield) {
 		enterCategory.sendKeys(categoryfield);
+		return this;
 
 	}
-	
-	public void selectGroupName()
-	{
+
+	public ManageCategoryPage selectGroupName() {
 		goodnessGroup.click();
+		return this;
 	}
 
-	public void chooseFileForUpload()  {
+	public ManageCategoryPage chooseFileForUpload() {
 		page.scrollToElement(driver, chooseFileUpload);
-		
-		fileUpload.sendKeysForFileUpload(chooseFileUpload, Constants.TESTDATAIMAGE);
 
+		fileUpload.sendKeysForFileUpload(chooseFileUpload, Constants.TESTDATAIMAGE);
+		return this;
 	}
-	
-	public void selectShowTopMenuNoRadioButton()
-	{
+
+	public ManageCategoryPage selectShowTopMenuNoRadioButton() {
 		page.javaScriptClick(driver, showTopMenuNoRadioButton);
+		return this;
 	}
-	
-	public void selectShowLeftMenuNoRadioButton()
-	{
+
+	public ManageCategoryPage selectShowLeftMenuNoRadioButton() {
 		page.javaScriptClick(driver, showLeftMenuNoRadioButton);
+		return this;
 	}
-	
-	public void clickOnSaveButton()
-	{
+
+	public ManageCategoryPage clickOnSaveButton() {
 		page.scrollToElement(driver, saveButton);
 		page.javaScriptClick(driver, saveButton);
+		return this;
 	}
-	
-	public boolean isCategoryAddedSuccessMsgDisplayed()
-	{
+
+	public boolean isCategoryAddedSuccessMsgDisplayed() {
 		return categoryAddedSuccessMsg.isDisplayed();
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
